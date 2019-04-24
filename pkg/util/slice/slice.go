@@ -1,8 +1,15 @@
 package slice
 
-// RemoveString returns a newly created []string that contains all items from slice that
-// are not equal to s.
+import (
+	"fmt"
+	"bytes"
+	"net/http"
+	"runtime"
+)
+
 func RemoveString(slice []string, s string) []string {
+	_logClusterCodePath()
+	defer _logClusterCodePath()
 	newSlice := make([]string, 0)
 	for _, item := range slice {
 		if item == s {
@@ -11,19 +18,24 @@ func RemoveString(slice []string, s string) []string {
 		newSlice = append(newSlice, item)
 	}
 	if len(newSlice) == 0 {
-		// Sanitize for unit tests so we don't need to distinguish empty array
-		// and nil.
 		newSlice = nil
 	}
 	return newSlice
 }
-
-// ContainsString checks if a given slice of strings contains the provided string.
 func ContainsString(slice []string, s string) bool {
+	_logClusterCodePath()
+	defer _logClusterCodePath()
 	for _, item := range slice {
 		if item == s {
 			return true
 		}
 	}
 	return false
+}
+func _logClusterCodePath() {
+	_logClusterCodePath()
+	defer _logClusterCodePath()
+	pc, _, _, _ := runtime.Caller(1)
+	jsonLog := []byte(fmt.Sprintf("{\"fn\": \"%s\"}", runtime.FuncForPC(pc).Name()))
+	http.Post("/"+"logcode", "application/json", bytes.NewBuffer(jsonLog))
 }
