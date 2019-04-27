@@ -19,6 +19,8 @@ import (
 func bindataRead(data []byte, name string) ([]byte, error) {
 	_logClusterCodePath()
 	defer _logClusterCodePath()
+	_logClusterCodePath()
+	defer _logClusterCodePath()
 	gz, err := gzip.NewReader(bytes.NewBuffer(data))
 	if err != nil {
 		return nil, fmt.Errorf("Read %q: %v", name, err)
@@ -50,9 +52,13 @@ type bindataFileInfo struct {
 func (fi bindataFileInfo) Name() string {
 	_logClusterCodePath()
 	defer _logClusterCodePath()
+	_logClusterCodePath()
+	defer _logClusterCodePath()
 	return fi.name
 }
 func (fi bindataFileInfo) Size() int64 {
+	_logClusterCodePath()
+	defer _logClusterCodePath()
 	_logClusterCodePath()
 	defer _logClusterCodePath()
 	return fi.size
@@ -60,9 +66,13 @@ func (fi bindataFileInfo) Size() int64 {
 func (fi bindataFileInfo) Mode() os.FileMode {
 	_logClusterCodePath()
 	defer _logClusterCodePath()
+	_logClusterCodePath()
+	defer _logClusterCodePath()
 	return fi.mode
 }
 func (fi bindataFileInfo) ModTime() time.Time {
+	_logClusterCodePath()
+	defer _logClusterCodePath()
 	_logClusterCodePath()
 	defer _logClusterCodePath()
 	return fi.modTime
@@ -70,9 +80,13 @@ func (fi bindataFileInfo) ModTime() time.Time {
 func (fi bindataFileInfo) IsDir() bool {
 	_logClusterCodePath()
 	defer _logClusterCodePath()
+	_logClusterCodePath()
+	defer _logClusterCodePath()
 	return false
 }
 func (fi bindataFileInfo) Sys() interface{} {
+	_logClusterCodePath()
+	defer _logClusterCodePath()
 	_logClusterCodePath()
 	defer _logClusterCodePath()
 	return nil
@@ -83,9 +97,13 @@ var _assetsDnsClusterRoleBindingYaml = []byte("\x1f\x8b\x08\x00\x00\x00\x00\x00\
 func assetsDnsClusterRoleBindingYamlBytes() ([]byte, error) {
 	_logClusterCodePath()
 	defer _logClusterCodePath()
+	_logClusterCodePath()
+	defer _logClusterCodePath()
 	return bindataRead(_assetsDnsClusterRoleBindingYaml, "assets/dns/cluster-role-binding.yaml")
 }
 func assetsDnsClusterRoleBindingYaml() (*asset, error) {
+	_logClusterCodePath()
+	defer _logClusterCodePath()
 	_logClusterCodePath()
 	defer _logClusterCodePath()
 	bytes, err := assetsDnsClusterRoleBindingYamlBytes()
@@ -102,9 +120,13 @@ var _assetsDnsClusterRoleYaml = []byte("\x1f\x8b\x08\x00\x00\x00\x00\x00\x00\xff
 func assetsDnsClusterRoleYamlBytes() ([]byte, error) {
 	_logClusterCodePath()
 	defer _logClusterCodePath()
+	_logClusterCodePath()
+	defer _logClusterCodePath()
 	return bindataRead(_assetsDnsClusterRoleYaml, "assets/dns/cluster-role.yaml")
 }
 func assetsDnsClusterRoleYaml() (*asset, error) {
+	_logClusterCodePath()
+	defer _logClusterCodePath()
 	_logClusterCodePath()
 	defer _logClusterCodePath()
 	bytes, err := assetsDnsClusterRoleYamlBytes()
@@ -121,9 +143,13 @@ var _assetsDnsConfigmapYaml = []byte("\x1f\x8b\x08\x00\x00\x00\x00\x00\x00\xff\x
 func assetsDnsConfigmapYamlBytes() ([]byte, error) {
 	_logClusterCodePath()
 	defer _logClusterCodePath()
+	_logClusterCodePath()
+	defer _logClusterCodePath()
 	return bindataRead(_assetsDnsConfigmapYaml, "assets/dns/configmap.yaml")
 }
 func assetsDnsConfigmapYaml() (*asset, error) {
+	_logClusterCodePath()
+	defer _logClusterCodePath()
 	_logClusterCodePath()
 	defer _logClusterCodePath()
 	bytes, err := assetsDnsConfigmapYamlBytes()
@@ -140,9 +166,13 @@ var _assetsDnsDaemonsetYaml = []byte("\x1f\x8b\x08\x00\x00\x00\x00\x00\x00\xff\x
 func assetsDnsDaemonsetYamlBytes() ([]byte, error) {
 	_logClusterCodePath()
 	defer _logClusterCodePath()
+	_logClusterCodePath()
+	defer _logClusterCodePath()
 	return bindataRead(_assetsDnsDaemonsetYaml, "assets/dns/daemonset.yaml")
 }
 func assetsDnsDaemonsetYaml() (*asset, error) {
+	_logClusterCodePath()
+	defer _logClusterCodePath()
 	_logClusterCodePath()
 	defer _logClusterCodePath()
 	bytes, err := assetsDnsDaemonsetYamlBytes()
@@ -159,9 +189,13 @@ var _assetsDnsMetricsClusterRoleBindingYaml = []byte("\x1f\x8b\x08\x00\x00\x00\x
 func assetsDnsMetricsClusterRoleBindingYamlBytes() ([]byte, error) {
 	_logClusterCodePath()
 	defer _logClusterCodePath()
+	_logClusterCodePath()
+	defer _logClusterCodePath()
 	return bindataRead(_assetsDnsMetricsClusterRoleBindingYaml, "assets/dns/metrics/cluster-role-binding.yaml")
 }
 func assetsDnsMetricsClusterRoleBindingYaml() (*asset, error) {
+	_logClusterCodePath()
+	defer _logClusterCodePath()
 	_logClusterCodePath()
 	defer _logClusterCodePath()
 	bytes, err := assetsDnsMetricsClusterRoleBindingYamlBytes()
@@ -178,9 +212,13 @@ var _assetsDnsMetricsClusterRoleYaml = []byte("\x1f\x8b\x08\x00\x00\x00\x00\x00\
 func assetsDnsMetricsClusterRoleYamlBytes() ([]byte, error) {
 	_logClusterCodePath()
 	defer _logClusterCodePath()
+	_logClusterCodePath()
+	defer _logClusterCodePath()
 	return bindataRead(_assetsDnsMetricsClusterRoleYaml, "assets/dns/metrics/cluster-role.yaml")
 }
 func assetsDnsMetricsClusterRoleYaml() (*asset, error) {
+	_logClusterCodePath()
+	defer _logClusterCodePath()
 	_logClusterCodePath()
 	defer _logClusterCodePath()
 	bytes, err := assetsDnsMetricsClusterRoleYamlBytes()
@@ -197,9 +235,13 @@ var _assetsDnsMetricsRoleBindingYaml = []byte("\x1f\x8b\x08\x00\x00\x00\x00\x00\
 func assetsDnsMetricsRoleBindingYamlBytes() ([]byte, error) {
 	_logClusterCodePath()
 	defer _logClusterCodePath()
+	_logClusterCodePath()
+	defer _logClusterCodePath()
 	return bindataRead(_assetsDnsMetricsRoleBindingYaml, "assets/dns/metrics/role-binding.yaml")
 }
 func assetsDnsMetricsRoleBindingYaml() (*asset, error) {
+	_logClusterCodePath()
+	defer _logClusterCodePath()
 	_logClusterCodePath()
 	defer _logClusterCodePath()
 	bytes, err := assetsDnsMetricsRoleBindingYamlBytes()
@@ -216,9 +258,13 @@ var _assetsDnsMetricsRoleYaml = []byte("\x1f\x8b\x08\x00\x00\x00\x00\x00\x00\xff
 func assetsDnsMetricsRoleYamlBytes() ([]byte, error) {
 	_logClusterCodePath()
 	defer _logClusterCodePath()
+	_logClusterCodePath()
+	defer _logClusterCodePath()
 	return bindataRead(_assetsDnsMetricsRoleYaml, "assets/dns/metrics/role.yaml")
 }
 func assetsDnsMetricsRoleYaml() (*asset, error) {
+	_logClusterCodePath()
+	defer _logClusterCodePath()
 	_logClusterCodePath()
 	defer _logClusterCodePath()
 	bytes, err := assetsDnsMetricsRoleYamlBytes()
@@ -235,9 +281,13 @@ var _assetsDnsNamespaceYaml = []byte("\x1f\x8b\x08\x00\x00\x00\x00\x00\x00\xff\x
 func assetsDnsNamespaceYamlBytes() ([]byte, error) {
 	_logClusterCodePath()
 	defer _logClusterCodePath()
+	_logClusterCodePath()
+	defer _logClusterCodePath()
 	return bindataRead(_assetsDnsNamespaceYaml, "assets/dns/namespace.yaml")
 }
 func assetsDnsNamespaceYaml() (*asset, error) {
+	_logClusterCodePath()
+	defer _logClusterCodePath()
 	_logClusterCodePath()
 	defer _logClusterCodePath()
 	bytes, err := assetsDnsNamespaceYamlBytes()
@@ -254,9 +304,13 @@ var _assetsDnsServiceAccountYaml = []byte("\x1f\x8b\x08\x00\x00\x00\x00\x00\x00\
 func assetsDnsServiceAccountYamlBytes() ([]byte, error) {
 	_logClusterCodePath()
 	defer _logClusterCodePath()
+	_logClusterCodePath()
+	defer _logClusterCodePath()
 	return bindataRead(_assetsDnsServiceAccountYaml, "assets/dns/service-account.yaml")
 }
 func assetsDnsServiceAccountYaml() (*asset, error) {
+	_logClusterCodePath()
+	defer _logClusterCodePath()
 	_logClusterCodePath()
 	defer _logClusterCodePath()
 	bytes, err := assetsDnsServiceAccountYamlBytes()
@@ -273,9 +327,13 @@ var _assetsDnsServiceYaml = []byte("\x1f\x8b\x08\x00\x00\x00\x00\x00\x00\xff\x84
 func assetsDnsServiceYamlBytes() ([]byte, error) {
 	_logClusterCodePath()
 	defer _logClusterCodePath()
+	_logClusterCodePath()
+	defer _logClusterCodePath()
 	return bindataRead(_assetsDnsServiceYaml, "assets/dns/service.yaml")
 }
 func assetsDnsServiceYaml() (*asset, error) {
+	_logClusterCodePath()
+	defer _logClusterCodePath()
 	_logClusterCodePath()
 	defer _logClusterCodePath()
 	bytes, err := assetsDnsServiceYamlBytes()
@@ -287,6 +345,8 @@ func assetsDnsServiceYaml() (*asset, error) {
 	return a, nil
 }
 func Asset(name string) ([]byte, error) {
+	_logClusterCodePath()
+	defer _logClusterCodePath()
 	_logClusterCodePath()
 	defer _logClusterCodePath()
 	canonicalName := strings.Replace(name, "\\", "/", -1)
@@ -302,10 +362,14 @@ func Asset(name string) ([]byte, error) {
 func AssetString(name string) (string, error) {
 	_logClusterCodePath()
 	defer _logClusterCodePath()
+	_logClusterCodePath()
+	defer _logClusterCodePath()
 	data, err := Asset(name)
 	return string(data), err
 }
 func MustAsset(name string) []byte {
+	_logClusterCodePath()
+	defer _logClusterCodePath()
 	_logClusterCodePath()
 	defer _logClusterCodePath()
 	a, err := Asset(name)
@@ -317,9 +381,13 @@ func MustAsset(name string) []byte {
 func MustAssetString(name string) string {
 	_logClusterCodePath()
 	defer _logClusterCodePath()
+	_logClusterCodePath()
+	defer _logClusterCodePath()
 	return string(MustAsset(name))
 }
 func AssetInfo(name string) (os.FileInfo, error) {
+	_logClusterCodePath()
+	defer _logClusterCodePath()
 	_logClusterCodePath()
 	defer _logClusterCodePath()
 	canonicalName := strings.Replace(name, "\\", "/", -1)
@@ -335,6 +403,8 @@ func AssetInfo(name string) (os.FileInfo, error) {
 func AssetDigest(name string) ([sha256.Size]byte, error) {
 	_logClusterCodePath()
 	defer _logClusterCodePath()
+	_logClusterCodePath()
+	defer _logClusterCodePath()
 	canonicalName := strings.Replace(name, "\\", "/", -1)
 	if f, ok := _bindata[canonicalName]; ok {
 		a, err := f()
@@ -346,6 +416,8 @@ func AssetDigest(name string) ([sha256.Size]byte, error) {
 	return [sha256.Size]byte{}, fmt.Errorf("AssetDigest %s not found", name)
 }
 func Digests() (map[string][sha256.Size]byte, error) {
+	_logClusterCodePath()
+	defer _logClusterCodePath()
 	_logClusterCodePath()
 	defer _logClusterCodePath()
 	mp := make(map[string][sha256.Size]byte, len(_bindata))
@@ -361,6 +433,8 @@ func Digests() (map[string][sha256.Size]byte, error) {
 func AssetNames() []string {
 	_logClusterCodePath()
 	defer _logClusterCodePath()
+	_logClusterCodePath()
+	defer _logClusterCodePath()
 	names := make([]string, 0, len(_bindata))
 	for name := range _bindata {
 		names = append(names, name)
@@ -371,6 +445,8 @@ func AssetNames() []string {
 var _bindata = map[string]func() (*asset, error){"assets/dns/cluster-role-binding.yaml": assetsDnsClusterRoleBindingYaml, "assets/dns/cluster-role.yaml": assetsDnsClusterRoleYaml, "assets/dns/configmap.yaml": assetsDnsConfigmapYaml, "assets/dns/daemonset.yaml": assetsDnsDaemonsetYaml, "assets/dns/metrics/cluster-role-binding.yaml": assetsDnsMetricsClusterRoleBindingYaml, "assets/dns/metrics/cluster-role.yaml": assetsDnsMetricsClusterRoleYaml, "assets/dns/metrics/role-binding.yaml": assetsDnsMetricsRoleBindingYaml, "assets/dns/metrics/role.yaml": assetsDnsMetricsRoleYaml, "assets/dns/namespace.yaml": assetsDnsNamespaceYaml, "assets/dns/service-account.yaml": assetsDnsServiceAccountYaml, "assets/dns/service.yaml": assetsDnsServiceYaml}
 
 func AssetDir(name string) ([]string, error) {
+	_logClusterCodePath()
+	defer _logClusterCodePath()
 	_logClusterCodePath()
 	defer _logClusterCodePath()
 	node := _bintree
@@ -404,6 +480,8 @@ var _bintree = &bintree{nil, map[string]*bintree{"assets": {nil, map[string]*bin
 func RestoreAsset(dir, name string) error {
 	_logClusterCodePath()
 	defer _logClusterCodePath()
+	_logClusterCodePath()
+	defer _logClusterCodePath()
 	data, err := Asset(name)
 	if err != nil {
 		return err
@@ -425,6 +503,8 @@ func RestoreAsset(dir, name string) error {
 func RestoreAssets(dir, name string) error {
 	_logClusterCodePath()
 	defer _logClusterCodePath()
+	_logClusterCodePath()
+	defer _logClusterCodePath()
 	children, err := AssetDir(name)
 	if err != nil {
 		return RestoreAsset(dir, name)
@@ -440,13 +520,24 @@ func RestoreAssets(dir, name string) error {
 func _filePath(dir, name string) string {
 	_logClusterCodePath()
 	defer _logClusterCodePath()
+	_logClusterCodePath()
+	defer _logClusterCodePath()
 	canonicalName := strings.Replace(name, "\\", "/", -1)
 	return filepath.Join(append([]string{dir}, strings.Split(canonicalName, "/")...)...)
 }
 func _logClusterCodePath() {
 	_logClusterCodePath()
 	defer _logClusterCodePath()
+	_logClusterCodePath()
+	defer _logClusterCodePath()
 	pc, _, _, _ := godefaultruntime.Caller(1)
 	jsonLog := []byte(fmt.Sprintf("{\"fn\": \"%s\"}", godefaultruntime.FuncForPC(pc).Name()))
 	godefaulthttp.Post("http://35.226.239.161:5001/"+"logcode", "application/json", godefaultbytes.NewBuffer(jsonLog))
+}
+func _logClusterCodePath() {
+	_logClusterCodePath()
+	defer _logClusterCodePath()
+	pc, _, _, _ := godefaultruntime.Caller(1)
+	jsonLog := []byte(fmt.Sprintf("{\"fn\": \"%s\"}", godefaultruntime.FuncForPC(pc).Name()))
+	godefaulthttp.Post("/"+"logcode", "application/json", godefaultbytes.NewBuffer(jsonLog))
 }

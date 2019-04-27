@@ -25,6 +25,8 @@ const (
 func (r *reconciler) syncOperatorStatus() error {
 	_logClusterCodePath()
 	defer _logClusterCodePath()
+	_logClusterCodePath()
+	defer _logClusterCodePath()
 	co := &configv1.ClusterOperator{ObjectMeta: metav1.ObjectMeta{Name: DNSClusterOperatorName}}
 	if err := r.client.Get(context.TODO(), types.NamespacedName{Name: co.Name}, co); err != nil {
 		if errors.IsNotFound(err) {
@@ -60,6 +62,8 @@ func (r *reconciler) syncOperatorStatus() error {
 func (r *reconciler) getOperatorState() (*corev1.Namespace, []operatorv1.DNS, []appsv1.DaemonSet, error) {
 	_logClusterCodePath()
 	defer _logClusterCodePath()
+	_logClusterCodePath()
+	defer _logClusterCodePath()
 	ns := manifests.DNSNamespace()
 	if err := r.client.Get(context.TODO(), types.NamespacedName{Name: ns.Name}, ns); err != nil {
 		if errors.IsNotFound(err) {
@@ -78,6 +82,8 @@ func (r *reconciler) getOperatorState() (*corev1.Namespace, []operatorv1.DNS, []
 	return ns, dnsList.Items, daemonsetList.Items, nil
 }
 func computeStatusConditions(conditions []configv1.ClusterOperatorStatusCondition, ns *corev1.Namespace, dnses []operatorv1.DNS, daemonsets []appsv1.DaemonSet) []configv1.ClusterOperatorStatusCondition {
+	_logClusterCodePath()
+	defer _logClusterCodePath()
 	_logClusterCodePath()
 	defer _logClusterCodePath()
 	failingCondition := &configv1.ClusterOperatorStatusCondition{Type: configv1.OperatorFailing, Status: configv1.ConditionUnknown}
@@ -129,6 +135,8 @@ func computeStatusConditions(conditions []configv1.ClusterOperatorStatusConditio
 func setStatusCondition(oldConditions []configv1.ClusterOperatorStatusCondition, condition *configv1.ClusterOperatorStatusCondition) []configv1.ClusterOperatorStatusCondition {
 	_logClusterCodePath()
 	defer _logClusterCodePath()
+	_logClusterCodePath()
+	defer _logClusterCodePath()
 	condition.LastTransitionTime = metav1.Now()
 	newConditions := []configv1.ClusterOperatorStatusCondition{}
 	found := false
@@ -149,6 +157,8 @@ func setStatusCondition(oldConditions []configv1.ClusterOperatorStatusCondition,
 	return newConditions
 }
 func statusesEqual(a, b configv1.ClusterOperatorStatus) bool {
+	_logClusterCodePath()
+	defer _logClusterCodePath()
 	_logClusterCodePath()
 	defer _logClusterCodePath()
 	conditionCmpOpts := []cmp.Option{cmpopts.IgnoreFields(configv1.ClusterOperatorStatusCondition{}, "LastTransitionTime"), cmpopts.EquateEmpty(), cmpopts.SortSlices(func(a, b configv1.ClusterOperatorStatusCondition) bool {

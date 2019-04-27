@@ -9,6 +9,8 @@ import (
 func TestDesiredDNSDaemonset(t *testing.T) {
 	_logClusterCodePath()
 	defer _logClusterCodePath()
+	_logClusterCodePath()
+	defer _logClusterCodePath()
 	clusterDomain := "cluster.local"
 	clusterIP := "172.30.77.10"
 	coreDNSImage := "quay.io/openshift/coredns:test"

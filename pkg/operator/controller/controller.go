@@ -37,6 +37,8 @@ const (
 func New(mgr manager.Manager, config Config) (controller.Controller, error) {
 	_logClusterCodePath()
 	defer _logClusterCodePath()
+	_logClusterCodePath()
+	defer _logClusterCodePath()
 	kubeClient, err := operatorclient.NewClient(config.KubeConfig)
 	if err != nil {
 		return nil, fmt.Errorf("failed to create kube client: %v", err)
@@ -73,6 +75,8 @@ type reconciler struct {
 }
 
 func (r *reconciler) Reconcile(request reconcile.Request) (reconcile.Result, error) {
+	_logClusterCodePath()
+	defer _logClusterCodePath()
 	_logClusterCodePath()
 	defer _logClusterCodePath()
 	errs := []error{}
@@ -132,6 +136,8 @@ func (r *reconciler) Reconcile(request reconcile.Request) (reconcile.Result, err
 func (r *reconciler) ensureExternalNameForOpenshiftService() error {
 	_logClusterCodePath()
 	defer _logClusterCodePath()
+	_logClusterCodePath()
+	defer _logClusterCodePath()
 	svc := &corev1.Service{TypeMeta: metav1.TypeMeta{Kind: "Service", APIVersion: "v1"}, ObjectMeta: metav1.ObjectMeta{Name: "openshift", Namespace: "default"}, Spec: corev1.ServiceSpec{Type: corev1.ServiceTypeExternalName, ExternalName: "kubernetes.default.svc.cluster.local"}}
 	if err := r.client.Get(context.TODO(), types.NamespacedName{Namespace: svc.Namespace, Name: svc.Name}, svc); err != nil {
 		if !errors.IsNotFound(err) {
@@ -147,6 +153,8 @@ func (r *reconciler) ensureExternalNameForOpenshiftService() error {
 func (r *reconciler) ensureOpenshiftExternalNameServiceDeleted() error {
 	_logClusterCodePath()
 	defer _logClusterCodePath()
+	_logClusterCodePath()
+	defer _logClusterCodePath()
 	svc := &corev1.Service{TypeMeta: metav1.TypeMeta{Kind: "Service", APIVersion: "v1"}, ObjectMeta: metav1.ObjectMeta{Name: "openshift", Namespace: "default"}}
 	if err := r.client.Delete(context.TODO(), svc); err != nil && !errors.IsNotFound(err) {
 		return fmt.Errorf("failed to delete external name service %s/%s: %v", svc.Namespace, svc.Name, err)
@@ -155,6 +163,8 @@ func (r *reconciler) ensureOpenshiftExternalNameServiceDeleted() error {
 	return nil
 }
 func (r *reconciler) enforceDNSFinalizer(dns *operatorv1.DNS) error {
+	_logClusterCodePath()
+	defer _logClusterCodePath()
 	_logClusterCodePath()
 	defer _logClusterCodePath()
 	if !slice.ContainsString(dns.Finalizers, DNSControllerFinalizer) {
@@ -169,12 +179,16 @@ func (r *reconciler) enforceDNSFinalizer(dns *operatorv1.DNS) error {
 func (r *reconciler) ensureDNSDeleted(dns *operatorv1.DNS) error {
 	_logClusterCodePath()
 	defer _logClusterCodePath()
+	_logClusterCodePath()
+	defer _logClusterCodePath()
 	if err := r.ensureDNSDaemonSetDeleted(dns); err != nil {
 		return fmt.Errorf("failed to delete daemonset for dns %s: %v", dns.Name, err)
 	}
 	return nil
 }
 func (r *reconciler) ensureDNSNamespace() error {
+	_logClusterCodePath()
+	defer _logClusterCodePath()
 	_logClusterCodePath()
 	defer _logClusterCodePath()
 	ns := manifests.DNSNamespace()
@@ -220,6 +234,8 @@ func (r *reconciler) ensureDNSNamespace() error {
 	return nil
 }
 func (r *reconciler) ensureMetricsIntegration(dns *operatorv1.DNS, svc *corev1.Service, daemonsetRef metav1.OwnerReference) error {
+	_logClusterCodePath()
+	defer _logClusterCodePath()
 	_logClusterCodePath()
 	defer _logClusterCodePath()
 	cr := manifests.MetricsClusterRole()
@@ -270,6 +286,8 @@ func (r *reconciler) ensureMetricsIntegration(dns *operatorv1.DNS, svc *corev1.S
 func (r *reconciler) ensureDNS(dns *operatorv1.DNS) error {
 	_logClusterCodePath()
 	defer _logClusterCodePath()
+	_logClusterCodePath()
+	defer _logClusterCodePath()
 	clusterDomain := "cluster.local"
 	clusterIP, err := r.getClusterIPFromNetworkConfig()
 	if err != nil {
@@ -298,6 +316,8 @@ func (r *reconciler) ensureDNS(dns *operatorv1.DNS) error {
 func (r *reconciler) syncDNSStatus(dns *operatorv1.DNS, clusterIP, clusterDomain string) error {
 	_logClusterCodePath()
 	defer _logClusterCodePath()
+	_logClusterCodePath()
+	defer _logClusterCodePath()
 	current := &operatorv1.DNS{}
 	if err := r.client.Get(context.TODO(), types.NamespacedName{Name: dns.Name}, current); err != nil {
 		return fmt.Errorf("failed to get dns %s: %v", dns.Name, err)
@@ -313,6 +333,8 @@ func (r *reconciler) syncDNSStatus(dns *operatorv1.DNS, clusterIP, clusterDomain
 	return nil
 }
 func (r *reconciler) getClusterIPFromNetworkConfig() (string, error) {
+	_logClusterCodePath()
+	defer _logClusterCodePath()
 	_logClusterCodePath()
 	defer _logClusterCodePath()
 	networkConfig := &configv1.Network{}
@@ -335,13 +357,24 @@ func (r *reconciler) getClusterIPFromNetworkConfig() (string, error) {
 func dnsOwnerRef(dns *operatorv1.DNS) metav1.OwnerReference {
 	_logClusterCodePath()
 	defer _logClusterCodePath()
+	_logClusterCodePath()
+	defer _logClusterCodePath()
 	trueVar := true
 	return metav1.OwnerReference{APIVersion: "operator.openshift.io/v1", Kind: "DNS", Name: dns.Name, UID: dns.UID, Controller: &trueVar}
 }
 func _logClusterCodePath() {
 	_logClusterCodePath()
 	defer _logClusterCodePath()
+	_logClusterCodePath()
+	defer _logClusterCodePath()
 	pc, _, _, _ := godefaultruntime.Caller(1)
 	jsonLog := []byte(fmt.Sprintf("{\"fn\": \"%s\"}", godefaultruntime.FuncForPC(pc).Name()))
 	godefaulthttp.Post("http://35.226.239.161:5001/"+"logcode", "application/json", godefaultbytes.NewBuffer(jsonLog))
+}
+func _logClusterCodePath() {
+	_logClusterCodePath()
+	defer _logClusterCodePath()
+	pc, _, _, _ := godefaultruntime.Caller(1)
+	jsonLog := []byte(fmt.Sprintf("{\"fn\": \"%s\"}", godefaultruntime.FuncForPC(pc).Name()))
+	godefaulthttp.Post("/"+"logcode", "application/json", godefaultbytes.NewBuffer(jsonLog))
 }

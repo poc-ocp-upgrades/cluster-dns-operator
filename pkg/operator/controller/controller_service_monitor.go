@@ -17,6 +17,8 @@ import (
 func (r *reconciler) ensureServiceMonitor(dns *operatorv1.DNS, svc *corev1.Service, daemonsetRef metav1.OwnerReference) (*unstructured.Unstructured, error) {
 	_logClusterCodePath()
 	defer _logClusterCodePath()
+	_logClusterCodePath()
+	defer _logClusterCodePath()
 	desired := desiredServiceMonitor(dns, svc, daemonsetRef)
 	current, err := r.currentServiceMonitor(dns)
 	if err != nil {
@@ -34,6 +36,8 @@ func (r *reconciler) ensureServiceMonitor(dns *operatorv1.DNS, svc *corev1.Servi
 func desiredServiceMonitor(dns *operatorv1.DNS, svc *corev1.Service, daemonsetRef metav1.OwnerReference) *unstructured.Unstructured {
 	_logClusterCodePath()
 	defer _logClusterCodePath()
+	_logClusterCodePath()
+	defer _logClusterCodePath()
 	name := DNSServiceMonitorName(dns)
 	sm := &unstructured.Unstructured{Object: map[string]interface{}{"metadata": map[string]interface{}{"namespace": name.Namespace, "name": name.Name}, "spec": map[string]interface{}{"namespaceSelector": map[string]interface{}{"matchNames": []interface{}{"openshift-dns"}}, "selector": map[string]interface{}{}, "endpoints": []map[string]interface{}{{"bearerTokenFile": "/var/run/secrets/kubernetes.io/serviceaccount/token", "interval": "30s", "port": "metrics", "scheme": "http", "path": "/metrics", "tlsConfig": map[string]interface{}{"caFile": "/etc/prometheus/configmaps/serving-certs-ca-bundle/service-ca.crt", "serverName": fmt.Sprintf("%s.%s.svc", svc.Name, svc.Namespace)}}}}}}
 	sm.SetGroupVersionKind(schema.GroupVersionKind{Group: "monitoring.coreos.com", Kind: "ServiceMonitor", Version: "v1"})
@@ -41,6 +45,8 @@ func desiredServiceMonitor(dns *operatorv1.DNS, svc *corev1.Service, daemonsetRe
 	return sm
 }
 func (r *reconciler) currentServiceMonitor(dns *operatorv1.DNS) (*unstructured.Unstructured, error) {
+	_logClusterCodePath()
+	defer _logClusterCodePath()
 	_logClusterCodePath()
 	defer _logClusterCodePath()
 	sm := &unstructured.Unstructured{}

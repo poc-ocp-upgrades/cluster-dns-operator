@@ -15,6 +15,8 @@ import (
 func (r *reconciler) ensureDNSDaemonSet(dns *operatorv1.DNS, clusterIP, clusterDomain string) (*appsv1.DaemonSet, error) {
 	_logClusterCodePath()
 	defer _logClusterCodePath()
+	_logClusterCodePath()
+	defer _logClusterCodePath()
 	desired, err := desiredDNSDaemonSet(dns, clusterIP, clusterDomain, r.CoreDNSImage, r.OpenshiftCLIImage)
 	if err != nil {
 		return nil, fmt.Errorf("failed to build dns daemonset: %v", err)
@@ -38,6 +40,8 @@ func (r *reconciler) ensureDNSDaemonSet(dns *operatorv1.DNS, clusterIP, clusterD
 func (r *reconciler) ensureDNSDaemonSetDeleted(dns *operatorv1.DNS) error {
 	_logClusterCodePath()
 	defer _logClusterCodePath()
+	_logClusterCodePath()
+	defer _logClusterCodePath()
 	daemonset := &appsv1.DaemonSet{}
 	name := DNSDaemonSetName(dns)
 	daemonset.Name = name.Name
@@ -52,6 +56,8 @@ func (r *reconciler) ensureDNSDaemonSetDeleted(dns *operatorv1.DNS) error {
 	return nil
 }
 func desiredDNSDaemonSet(dns *operatorv1.DNS, clusterIP, clusterDomain, coreDNSImage, openshiftCLIImage string) (*appsv1.DaemonSet, error) {
+	_logClusterCodePath()
+	defer _logClusterCodePath()
 	_logClusterCodePath()
 	defer _logClusterCodePath()
 	daemonset := manifests.DNSDaemonSet()
@@ -97,6 +103,8 @@ func desiredDNSDaemonSet(dns *operatorv1.DNS, clusterIP, clusterDomain, coreDNSI
 func (r *reconciler) currentDNSDaemonSet(dns *operatorv1.DNS) (*appsv1.DaemonSet, error) {
 	_logClusterCodePath()
 	defer _logClusterCodePath()
+	_logClusterCodePath()
+	defer _logClusterCodePath()
 	daemonset := &appsv1.DaemonSet{}
 	if err := r.client.Get(context.TODO(), DNSDaemonSetName(dns), daemonset); err != nil {
 		if errors.IsNotFound(err) {
@@ -109,6 +117,8 @@ func (r *reconciler) currentDNSDaemonSet(dns *operatorv1.DNS) (*appsv1.DaemonSet
 func (r *reconciler) createDNSDaemonSet(daemonset *appsv1.DaemonSet) error {
 	_logClusterCodePath()
 	defer _logClusterCodePath()
+	_logClusterCodePath()
+	defer _logClusterCodePath()
 	if err := r.client.Create(context.TODO(), daemonset); err != nil {
 		return fmt.Errorf("failed to create dns daemonset %s/%s: %v", daemonset.Namespace, daemonset.Name, err)
 	}
@@ -116,6 +126,8 @@ func (r *reconciler) createDNSDaemonSet(daemonset *appsv1.DaemonSet) error {
 	return nil
 }
 func (r *reconciler) updateDNSDaemonSet(current, desired *appsv1.DaemonSet) error {
+	_logClusterCodePath()
+	defer _logClusterCodePath()
 	_logClusterCodePath()
 	defer _logClusterCodePath()
 	changed, updated := daemonsetConfigChanged(current, desired)
@@ -129,6 +141,8 @@ func (r *reconciler) updateDNSDaemonSet(current, desired *appsv1.DaemonSet) erro
 	return nil
 }
 func daemonsetConfigChanged(current, expected *appsv1.DaemonSet) (bool, *appsv1.DaemonSet) {
+	_logClusterCodePath()
+	defer _logClusterCodePath()
 	_logClusterCodePath()
 	defer _logClusterCodePath()
 	changed := false

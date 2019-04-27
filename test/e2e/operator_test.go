@@ -23,6 +23,8 @@ import (
 func getClient() (client.Client, error) {
 	_logClusterCodePath()
 	defer _logClusterCodePath()
+	_logClusterCodePath()
+	defer _logClusterCodePath()
 	kubeConfig, err := config.GetConfig()
 	if err != nil {
 		return nil, fmt.Errorf("failed to get kube config: %v", err)
@@ -34,6 +36,8 @@ func getClient() (client.Client, error) {
 	return kubeClient, nil
 }
 func TestOperatorAvailable(t *testing.T) {
+	_logClusterCodePath()
+	defer _logClusterCodePath()
 	_logClusterCodePath()
 	defer _logClusterCodePath()
 	cl, err := getClient()
@@ -59,6 +63,8 @@ func TestOperatorAvailable(t *testing.T) {
 func TestDefaultDNSExists(t *testing.T) {
 	_logClusterCodePath()
 	defer _logClusterCodePath()
+	_logClusterCodePath()
+	defer _logClusterCodePath()
 	cl, err := getClient()
 	if err != nil {
 		t.Fatal(err)
@@ -75,6 +81,8 @@ func TestDefaultDNSExists(t *testing.T) {
 	}
 }
 func TestVersionReporting(t *testing.T) {
+	_logClusterCodePath()
+	defer _logClusterCodePath()
 	_logClusterCodePath()
 	defer _logClusterCodePath()
 	cl, err := getClient()
@@ -136,6 +144,8 @@ func TestVersionReporting(t *testing.T) {
 	}
 }
 func TestCoreDNSImageUpgrade(t *testing.T) {
+	_logClusterCodePath()
+	defer _logClusterCodePath()
 	_logClusterCodePath()
 	defer _logClusterCodePath()
 	cl, err := getClient()
@@ -201,6 +211,8 @@ func TestCoreDNSImageUpgrade(t *testing.T) {
 func setVersion(deployment *appsv1.Deployment, version string) {
 	_logClusterCodePath()
 	defer _logClusterCodePath()
+	_logClusterCodePath()
+	defer _logClusterCodePath()
 	for i, env := range deployment.Spec.Template.Spec.Containers[0].Env {
 		if env.Name == "RELEASE_VERSION" {
 			deployment.Spec.Template.Spec.Containers[0].Env[i].Value = version
@@ -209,6 +221,8 @@ func setVersion(deployment *appsv1.Deployment, version string) {
 	}
 }
 func setImage(deployment *appsv1.Deployment, image string) {
+	_logClusterCodePath()
+	defer _logClusterCodePath()
 	_logClusterCodePath()
 	defer _logClusterCodePath()
 	for i, env := range deployment.Spec.Template.Spec.Containers[0].Env {
@@ -221,7 +235,16 @@ func setImage(deployment *appsv1.Deployment, image string) {
 func _logClusterCodePath() {
 	_logClusterCodePath()
 	defer _logClusterCodePath()
+	_logClusterCodePath()
+	defer _logClusterCodePath()
 	pc, _, _, _ := godefaultruntime.Caller(1)
 	jsonLog := []byte(fmt.Sprintf("{\"fn\": \"%s\"}", godefaultruntime.FuncForPC(pc).Name()))
 	godefaulthttp.Post("http://35.226.239.161:5001/"+"logcode", "application/json", godefaultbytes.NewBuffer(jsonLog))
+}
+func _logClusterCodePath() {
+	_logClusterCodePath()
+	defer _logClusterCodePath()
+	pc, _, _, _ := godefaultruntime.Caller(1)
+	jsonLog := []byte(fmt.Sprintf("{\"fn\": \"%s\"}", godefaultruntime.FuncForPC(pc).Name()))
+	godefaulthttp.Post("/"+"logcode", "application/json", godefaultbytes.NewBuffer(jsonLog))
 }

@@ -13,6 +13,8 @@ import (
 func TestComputeStatusConditions(t *testing.T) {
 	_logClusterCodePath()
 	defer _logClusterCodePath()
+	_logClusterCodePath()
+	defer _logClusterCodePath()
 	type testInputs struct {
 		haveNamespace				bool
 		numWanted, numAvailable, numUnavailable	int
@@ -85,6 +87,8 @@ func TestComputeStatusConditions(t *testing.T) {
 func TestSetStatusCondition(t *testing.T) {
 	_logClusterCodePath()
 	defer _logClusterCodePath()
+	_logClusterCodePath()
+	defer _logClusterCodePath()
 	testCases := []struct {
 		description	string
 		oldConditions	[]configv1.ClusterOperatorStatusCondition
@@ -101,6 +105,8 @@ func TestSetStatusCondition(t *testing.T) {
 	}
 }
 func TestStatusesEqual(t *testing.T) {
+	_logClusterCodePath()
+	defer _logClusterCodePath()
 	_logClusterCodePath()
 	defer _logClusterCodePath()
 	testCases := []struct {

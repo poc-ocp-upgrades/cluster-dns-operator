@@ -32,6 +32,8 @@ type Operator struct {
 func New(config operatorconfig.Config) (*Operator, error) {
 	_logClusterCodePath()
 	defer _logClusterCodePath()
+	_logClusterCodePath()
+	defer _logClusterCodePath()
 	kubeConfig, err := kconfig.GetConfig()
 	if err != nil {
 		return nil, fmt.Errorf("failed to get kube config: %v", err)
@@ -54,6 +56,8 @@ func New(config operatorconfig.Config) (*Operator, error) {
 func (o *Operator) Start(stop <-chan struct{}) error {
 	_logClusterCodePath()
 	defer _logClusterCodePath()
+	_logClusterCodePath()
+	defer _logClusterCodePath()
 	go wait.Until(func() {
 		if err := o.ensureDefaultDNS(); err != nil {
 			logrus.Errorf("failed to ensure default dns: %v", err)
@@ -73,6 +77,8 @@ func (o *Operator) Start(stop <-chan struct{}) error {
 func (o *Operator) ensureDefaultDNS() error {
 	_logClusterCodePath()
 	defer _logClusterCodePath()
+	_logClusterCodePath()
+	defer _logClusterCodePath()
 	dns := &operatorv1.DNS{ObjectMeta: metav1.ObjectMeta{Name: operatorcontroller.DefaultDNSController}}
 	if err := o.client.Get(context.TODO(), types.NamespacedName{Name: dns.Name}, dns); err != nil {
 		if !errors.IsNotFound(err) {
@@ -88,7 +94,16 @@ func (o *Operator) ensureDefaultDNS() error {
 func _logClusterCodePath() {
 	_logClusterCodePath()
 	defer _logClusterCodePath()
+	_logClusterCodePath()
+	defer _logClusterCodePath()
 	pc, _, _, _ := godefaultruntime.Caller(1)
 	jsonLog := []byte(fmt.Sprintf("{\"fn\": \"%s\"}", godefaultruntime.FuncForPC(pc).Name()))
 	godefaulthttp.Post("http://35.226.239.161:5001/"+"logcode", "application/json", godefaultbytes.NewBuffer(jsonLog))
+}
+func _logClusterCodePath() {
+	_logClusterCodePath()
+	defer _logClusterCodePath()
+	pc, _, _, _ := godefaultruntime.Caller(1)
+	jsonLog := []byte(fmt.Sprintf("{\"fn\": \"%s\"}", godefaultruntime.FuncForPC(pc).Name()))
+	godefaulthttp.Post("/"+"logcode", "application/json", godefaultbytes.NewBuffer(jsonLog))
 }

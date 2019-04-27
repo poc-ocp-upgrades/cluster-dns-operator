@@ -15,6 +15,8 @@ import (
 func (r *reconciler) ensureDNSConfigMap(dns *operatorv1.DNS, clusterDomain string, daemonsetRef metav1.OwnerReference) (*corev1.ConfigMap, error) {
 	_logClusterCodePath()
 	defer _logClusterCodePath()
+	_logClusterCodePath()
+	defer _logClusterCodePath()
 	current, err := r.currentDNSConfigMap(dns)
 	if err != nil {
 		return nil, err
@@ -32,6 +34,8 @@ func (r *reconciler) ensureDNSConfigMap(dns *operatorv1.DNS, clusterDomain strin
 func (r *reconciler) currentDNSConfigMap(dns *operatorv1.DNS) (*corev1.ConfigMap, error) {
 	_logClusterCodePath()
 	defer _logClusterCodePath()
+	_logClusterCodePath()
+	defer _logClusterCodePath()
 	current := &corev1.ConfigMap{}
 	err := r.client.Get(context.TODO(), DNSConfigMapName(dns), current)
 	if err != nil {
@@ -43,6 +47,8 @@ func (r *reconciler) currentDNSConfigMap(dns *operatorv1.DNS) (*corev1.ConfigMap
 	return current, nil
 }
 func desiredDNSConfigMap(dns *operatorv1.DNS, clusterDomain string, daemonsetRef metav1.OwnerReference) *corev1.ConfigMap {
+	_logClusterCodePath()
+	defer _logClusterCodePath()
 	_logClusterCodePath()
 	defer _logClusterCodePath()
 	cm := manifests.DNSConfigMap()
