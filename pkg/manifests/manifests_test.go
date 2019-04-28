@@ -5,6 +5,8 @@ import (
 )
 
 func TestManifests(t *testing.T) {
+	_logClusterCodePath()
+	defer _logClusterCodePath()
 	DNSServiceAccount()
 	DNSClusterRole()
 	DNSClusterRoleBinding()
@@ -12,7 +14,6 @@ func TestManifests(t *testing.T) {
 	DNSDaemonSet()
 	DNSConfigMap()
 	DNSService()
-
 	MetricsClusterRole()
 	MetricsClusterRoleBinding()
 	MetricsRole()
